@@ -49,6 +49,7 @@
 				color:black;}
 			input[type=submit]:hover {background-color:#DAA520;}
 		</style>
+		<script language="JavaScript" src="gen_validator.js" type="text/javascript"></script>
 	</head>
 	
 	<noembed>
@@ -83,12 +84,22 @@
 			</div>
 			<div style="display:inline-block; padding:2%; min-width:300px; width:61%">
 				Looking forward to answering your email.<br><br>
-				<form action="mailto:kayjan_wong@alumni.sutd.edu.sg" method="post" enctype="text/plain">
+				<form action="mailto:kayjan_wong@alumni.sutd.edu.sg" name="emailform" method="post" enctype="text/plain">
 					<input type="text" id="Name" name="name" placeholder="Name" style="font-family:Calibri; font-size:1em;">
 					<input type="text" id="Email" name="email" placeholder="Email" style="font-family:Calibri; font-size:1em;">
 					<textarea id="Subject" name="subject" placeholder="Subject" style="font-family:Calibri; font-size:1em; height:150px"></textarea>
 					<input type="submit" value="Submit" style="font-family:Calibri; font-size:1em;">
 				</form>
+
+				<script language="JavaScript">
+					// Code for validating the form
+					// Details in http://www.javascript-coder.com/html-form/javascript-form-validation.phtml
+					var frmvalidator  = new Validator("emailform");
+					frmvalidator.addValidation("name", "req", "Please provide your name"); 
+					frmvalidator.addValidation("email", "req", "Please provide your email"); 
+					frmvalidator.addValidation("email", "email", "Please enter a valid email address"); 
+				</script>
+
 			</div>
 		</div>
 
